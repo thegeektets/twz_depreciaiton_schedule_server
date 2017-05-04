@@ -2,7 +2,7 @@
 {% load static %}
       {% block bg_image %}
       <div class="background-wrapper">
-          <img src="{% static 'images/header_bg.jpg'%}" alt="" />
+          <img src="{% static 'images/header.jpg'%}" alt="" />
       </div>
           <div class="overlay"></div>
       {% endblock %}
@@ -26,32 +26,11 @@
             <ul class="nav navbar-nav">
               {% if user.is_authenticated %}
                   <li class="{% if 'home' in request.path %} active {% endif %}"><a href="{% url 'home' %}"> {% trans "Home" %} <span class="sr-only">(current)</span></a></li>
-                  <li class="{% if 'blog' in request.path %} active {% endif %}"><a id="id_section_5_header" href="{% url 'blog_detail' %}" class="link-menu">{% trans "Blog" %}</a></li>
-                  <li class="{% if 'lists' in request.path %} active {% endif %}"><a id="id_section_3_header" href="{% url 'lists' %}" class="link-menu">{% trans "Lists" %}</a></li>
-                  <li class="{% if 'panels' in request.path %} active {% endif %}"><a id="id_section_4_header" href="{% url 'panels' %}" class="link-menu">{% trans "Panels" %}</a></li>
-                  <li class="{% if 'contact' in request.path %} active {% endif %}"><a id="id_section_2_header" href="{% url 'contact' %}" class="link-menu">{% trans "Contact us" %}</a></li>
               {% else %}
                   <li><a href="{% url 'index' %}">{% trans "Home" %} <span class="sr-only">(current)</span></a></li>
-                  <li class="{% if 'contact' in request.path %} active {% endif %}"><a id="id_section_2_header" href="{% url 'contact' %}" class="link-menu">{% trans "Contact us" %}</a></li>
               {% endif %}
             </ul>
-            <div class="navbar-right lang-sel">
-              {% block language-selector %}
-                <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
-                  <input name="next" type="hidden" value="{{ request.path }}" />
-                    <select id="id_select_language" name="language" onchange="this.form.submit()">
-                      {% get_current_language as LANGUAGE_CODE %}
-                      {% get_available_languages as LANGUAGES %}
-                      {% get_language_info_list for LANGUAGES as languages %}
-                      {% for language in languages %}
-                        <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
-                          {{ language.code }}
-                        </option>
-                      {% endfor %}
-                    </select>
-                </form>
-              {% endblock %}
-            </div>
+
 
             <ul class="nav navbar-nav navbar-right">
               {% if user.is_authenticated %}

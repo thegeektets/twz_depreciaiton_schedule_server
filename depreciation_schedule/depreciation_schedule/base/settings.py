@@ -188,6 +188,19 @@ MEDIA_URL = '/media/'
 
 LOGIN_URL = '/'
 
+if DEBUG:
+    CORS_ORIGIN_ALLOW_ALL = True
+else:
+    CORS_ORIGIN_ALLOW_ALL = False
+
+CORS_ORIGIN_WHITELIST = (
+    'www.localhost.com',
+    'localhost',
+    '127.0.0.1'
+    'www.localhost.com:8100',
+    'localhost:8100',
+    '127.0.0.1:8100'
+)
 
 PROJECT_ROOT = os.path.dirname(os.path.realpath(__file__))
 FIXTURE_DIRS = ('depreciation_schedule/fixtures',)

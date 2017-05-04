@@ -2165,3 +2165,27 @@ button.rotate i:before, button[data-rotate] i:before {
 }
 
 /*# sourceMappingURL=maps/main.css.map */
+
+/* overide css */
+
+.overlay {
+    height: 100vh !important;
+}
+header .background-wrapper img {
+    height: 100vh !important;
+}
+.home-cards .card .panel-body {
+    height: 80px !important;
+    background: #D81B60;
+}
+.jumbotron {
+     padding-top: 20px !important;
+     padding-bottom: 0px !important;
+}
+.home-cards .card .panel-body h3 {
+    text-align: center;
+    color: #fff;
+}
+header.collapsed .background-wrapper {
+    height: 128px !important;
+}

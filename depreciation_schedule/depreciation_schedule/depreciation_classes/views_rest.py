@@ -20,7 +20,7 @@ class DepreciationClassFilter(django_filters.FilterSet):
         model = DepreciationClass
         fields = ['title']
 
-class AssetClassViewSet(viewsets.ModelViewSet, CheckIfSuperUser):
+class DepreciationClassViewSet(viewsets.ModelViewSet, CheckIfSuperUser):
 
     queryset = DepreciationClass.objects.all()
     serializer_class = DepreciationClassFilter
@@ -32,14 +32,14 @@ class AssetClassViewSet(viewsets.ModelViewSet, CheckIfSuperUser):
 
     def create(self, request, *args, **kwargs):
         self.check_if_superuser(request)
-        return super(AssetClassViewSet, self).create(request, *args, **kwargs)
+        return super(DepreciationClassViewSet, self).create(request, *args, **kwargs)
 
     def update(self, request, *args, **kwargs):
         self.check_if_superuser(request)
-        return super(AssetClassViewSet, self).update(request, *args, **kwargs)
+        return super(DepreciationClassViewSet, self).update(request, *args, **kwargs)
 
     def destroy(self, request, *args, **kwargs):
         self.check_if_superuser(request)
-        return super(AssetClassViewSet, self).destroy(request, *args, **kwargs)
+        return super(DepreciationClassViewSet, self).destroy(request, *args, **kwargs)
 
 
